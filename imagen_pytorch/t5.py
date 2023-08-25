@@ -16,9 +16,9 @@ def default(val, d):
 
 # config
 
-MAX_LENGTH = 256
+MAX_LENGTH = 512
 
-DEFAULT_T5_NAME = 'google/t5-v1_1-base'
+DEFAULT_T5_NAME = 'laituan245/molt5-large'
 
 T5_CONFIGS = {}
 
