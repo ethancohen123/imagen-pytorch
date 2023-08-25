@@ -26,7 +26,8 @@ setup(
     'denoising-diffusion'
   ],
   install_requires=[
-    'accelerate=0.20.3',
+    'accelerate=0.21.0',
+    'protobuf',
     'albumentations',
     'beartype',
     'click',
