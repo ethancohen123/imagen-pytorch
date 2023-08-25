@@ -1110,7 +1110,7 @@ class Unet(nn.Module):
         self,
         *,
         dim,
-        text_embed_dim = get_encoded_dim(DEFAULT_T5_NAME),
+        text_embed_dim = get_encoded_dim(DEFAULT_ROBERTA_NAME),
         num_resnet_blocks = 1,
         cond_dim = None,
         num_image_tokens = 4,
@@ -1788,7 +1788,7 @@ class Imagen(nn.Module):
         unets,
         *,
         image_sizes,                                # for cascading ddpm, image size at each stage
-        text_encoder_name = DEFAULT_T5_NAME,
+        text_encoder_name = DEFAULT_ROBERTA_NAME,
         text_embed_dim = None,
         channels = 3,
         timesteps = 1000,
