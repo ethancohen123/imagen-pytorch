@@ -1879,7 +1879,7 @@ class Imagen(nn.Module):
         self.text_encoder_name = text_encoder_name
         self.text_embed_dim = default(text_embed_dim, lambda: get_encoded_dim(text_encoder_name))
 
-        self.encode_text = partial(t5_encode_text, name = text_encoder_name)
+        self.encode_text = partial(roberta_encode_text, name = text_encoder_name)
 
         # construct unets
 
