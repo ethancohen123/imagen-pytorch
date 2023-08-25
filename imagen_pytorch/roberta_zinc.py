@@ -1,6 +1,9 @@
 import torch
 from transformers import RobertaTokenizerFast, RobertaForMaskedLM, DataCollatorWithPadding
 from typing import List
+from transformers import RobertaConfig
+
+
 
 # config
 DEFAULT_ROBERTA_NAME = 'entropy/roberta_zinc_480m'
@@ -28,6 +31,19 @@ def get_model_and_tokenizer(name):
         ROBERTA_CONFIGS[name]["tokenizer"] = get_tokenizer(name)
 
     return ROBERTA_CONFIGS[name]['model'], ROBERTA_CONFIGS[name]['tokenizer']
+
+def get_encoded_dim(name):
+    if name not in ROBERTA_CONFIGS:
+        # avoids loading the model if we only want to get the dim
+        config = RobertaConfig.from_pretrained(name)
+        ROBERTA_CONFIGS[name] = dict(config=config)
+    elif "config" in ROBERTA_CONFIGS[name]:
+        config = ROBERTA_CONFIGS[name]["config"]
+    elif "model" in ROBERTA_CONFIGS[name]:
+        config = ROBERTA_CONFIGS[name]["model"].config
+    else:
+        assert False
+    return config.hidden_size
 
 def roberta_encode_text(
     texts: List[str],
