@@ -26,7 +26,7 @@ setup(
     'denoising-diffusion'
   ],
   install_requires=[
-    'accelerate==0.21.0',
+    'accelerate',
     'einops_exts',
     'albumentations',
     'beartype',
