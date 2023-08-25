@@ -22,7 +22,8 @@ import kornia.augmentation as K
 from einops import rearrange, repeat, reduce, pack, unpack
 from einops.layers.torch import Rearrange, Reduce
 
-from imagen_pytorch.t5 import t5_encode_text, get_encoded_dim, DEFAULT_T5_NAME
+#from imagen_pytorch.t5 import t5_encode_text, get_encoded_dim, DEFAULT_T5_NAME
+from imagen_pytorch.roberta_zinc import roberta_encode_text,get_encoded_dim, DEFAULT_ROBERTA_NAME
 
 from imagen_pytorch.imagen_video import Unet3D, resize_video_to, scale_video_time
 
